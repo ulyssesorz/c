@@ -8,26 +8,29 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int divided(int n, int m) //注意该递归函数的定义
+int divided(int n, int m)                   //注意该递归函数的定义,n是桃子数，m是猴子数
 {
-	if (n % 5 != 1)             
-		return 0;                            //当桃子数不满足题目条件时，即小于6个桃子时，停止
+	if (n % 5 != 1)
+		return 0;                            //当桃子的分法不满足题意时，返回0
 
-	if (m == 1) 
-		return 1;                           //还剩最后一只猴子时，停止
+	if (m == 1)
+		return 1;                            //当分法满足题意，还剩最后一只猴子时，返回1
 
-	return divided(n - n / 5 - 1, m - 1);     //n是桃子数，m是猴子数
+	return divided(n - n / 5 - 1, m - 1);
 }
 int main()
 {
 	int n;
 	int m = 5;
+
 	for (n = 1; ; n++)
+	{
 		if (divided(n, m))
 		{
 			printf("%d\n", n);
 			break;
 		}
+	}
 
 	system("pause");
 	return 0;

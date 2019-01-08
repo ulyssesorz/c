@@ -1,33 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 int main()
 {
-	int a, c, i, n = 0;
-	int arry[20];
+	int num, temp, i, n = 0;
+	int a[20];
 
-	printf("请输入一个数:");
-	scanf_s("%d",&a);
+	printf("Please enter a number: ");
+	scanf_s("%d", &num);
+	temp = num;
 
-	c = a;                      //留一个a便于后续输出
-
-	while (c)                   //判断a是几位数
+	while (temp)                  //判断num是几位数
 	{
-		c /= 10;
+		temp /= 10;
 		n++;
-	}                   
-
-
+	}
 	for (i = 0; i < n; i++)
 	{
-		arry[i] = a % 10;
-		a /= 10;
+		a[i] = num % 10;
+		num /= 10;
 	}
-
-	for (i = n-7; i <n-3; i++)
+	for (i = n - 7; i < n - 3; i++)
 	{
-		printf("%d\n", arry[i]);
+		printf("%d", a[i]);
 	}
 
 	system("pause");

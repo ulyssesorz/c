@@ -11,13 +11,13 @@ int main()
 
 	for (i = 0; i < 10; i++)
 	{
-		printf("请输入第%d个字符串:\n",i+1);
+		printf("Please enter the %d string:\n",i+1);
 		scanf_s("%s",str+i,100);
 	}
 
 	sort(str);
 
-	printf("排序后的结果是:\n");
+	printf("The result after sorting is:\n");
 	for (i = 0; i < 10; i++)
 	{
 		printf("%s\n", *(str+i));
@@ -34,9 +34,9 @@ void sort(char str[10][100])
 	{
 		for (i = 0; i < 9 - j; i++)
 		{
-			if (strcmp(str[i], str[i + 1]) > 0)
+			if (strcmp(str[i], str[i + 1]) > 0)      //strcmp可直接用于比较首字母大小
 			{
-				strcpy_s(temp, str[i]);
+				strcpy_s(temp, str[i]);             //字符串无法直接赋值，使用strcpy
 				strcpy_s(str[i], str[i+1]);
 				strcpy_s(str[i+1],temp);
 			}

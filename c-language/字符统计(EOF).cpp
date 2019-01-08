@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 int main()
 {
@@ -26,6 +27,7 @@ int main()
 	printf("有数字%d个\n",num);
 	printf("有空白符%d个\n", emp);
 	printf("有其他字符%d个\n", els);
-	getchar();
+
+	system("pause");
 	return 0;
 }

@@ -3,37 +3,27 @@
 
 int main()
 {
-	int n=0;
-	float a=0;
-	float i = 0;
-	char b='+';
+	int num, m;
+	char c = '#';                            //任意赋值，不为=即可
 
-	printf("输入一个表达式:\n\n");
+	printf("Please enter a expression:\n");
+	scanf_s("%d", &num);
 
-	while (b != ';')
+	while (c != '=')
 	{
-		if (n == 0)                 //第一次输入会使符号前移一位，用if直接把第一个输入赋给i
+		c = getchar();
+		if (c != '=')                      //防止最后一次输入=后继续运算
 		{
-			scanf_s("%f", &i);     
-			n = 1;
-		}
-		else
-		{
-			b = getchar();
-
-			if(b != ';')                   //防止最后一次输入分号后继续运算
+			scanf_s("%d", &m);
+			switch (c)
 			{
-			    scanf_s("%f", &a);
-				switch (b)
-				{
-				case'+':i = i + a; break;
-				case'-':i = i - a; break;
-				}
+			case '+':num += m; break;
+			case '-':num -= m; break;
+			default:break;
 			}
 		}
 	}
-	printf("\n\n");
-	printf("答案是:%f", i);
+	printf("%d\n", num);
 
 	system("pause");
 	return 0;

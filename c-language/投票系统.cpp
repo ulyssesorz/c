@@ -12,7 +12,7 @@ int main()
 	struct people a, b, c;
 	a = { "bran" }; b = { "sansa" }; c = { "arya" };
 	int i, max;
-	int arry[3] = { 0,0,0};
+	int arry[3] = { 0,0,0 };                         //用于储存票数
 	char temp[10];
 
 	printf("开始投票，候选人有 bran，snasa，arya，请投票:");
@@ -27,7 +27,7 @@ int main()
 		{
 			arry[0]++;
 		}
-		else if(0==strcmp(temp,b.name))
+		else if (0 == strcmp(temp, b.name))
 		{
 			arry[1]++;
 		}
@@ -37,7 +37,7 @@ int main()
 		}
 	}
 
-	max = arry[0];
+	max = arry[0];                      //判断最大值
 	for (i = 0; i < 2; i++)
 	{
 		if (arry[i] < arry[i + 1])

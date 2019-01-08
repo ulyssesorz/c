@@ -3,25 +3,26 @@
 
 int main()
 {
-	int n, i;
-	printf("please input a number:\n");
-	scanf_s("%d", &n);
-	printf("%d=", n);
+	int num, i;
 
-	for (i = 2; i <= n; i++)
+	printf("Please enter the number:");
+	scanf_s("%d", &num);
+
+	printf("%d=", num);
+	for (i = 2; i < num; i++)         //从小到大检索，找到num的第一个因数（最小）
 	{
-		while (n != i)
+		while (num != i)             //相除直到num等于最小因数
 		{
-			if (n%i == 0)
+			if (num%i == 0)
 			{
 				printf("%d*", i);
-				n = n / i;
+				num /= i;
 			}
 			else
 				break;
 		}
 	}
-	printf("%d", n);
+	printf("%d\n", num);
 
 	system("pause");
 	return 0;

@@ -25,11 +25,11 @@ int main()
 		head->next = pt;               //给新开的节点head定位，head在pt的左侧，所以节点不断向左移动
 		pt = head;
 	}
-	pt = pt->next;                   //p原本指向空位置，此时让p向右移动一位，指向最后一个输入的数
+	pt = pt->next;                    //pt原本指向空位置，此时让pt向右移动一位，指向最后一个输入的数
 	while (pt != NULL)
 	{
 		printf("The value is %d\n", pt->data);
-		pt = pt->next;              //节点向右移动
+		pt = pt->next;                //节点向右移动
 	}
 
 	system("pause");

@@ -3,21 +3,22 @@
 
 int main()
 {
-	int a,b,i;
-	int sum=0,tum=0;
+	int n, m, i;
+	int sum = 0, tum = 0;
+	printf("Please enter n:\n");
+	scanf_s("%d", &n);
 
-	printf("输入数字");
-	scanf_s("%d", &a);
-	printf("输入次数");
-	scanf_s("%d", &b);
+	printf("Please enter m:\n");
+	scanf_s("%d", &m);
 
-	for (i = 0; i < b; i++)
+	for (i = 0; i < m; i++)
 	{
-		sum += a;
-		tum += sum;
-		a *= 10;
+		tum += n;         //tum用于计算每一项nn..
+		n *= 10;
+		sum += tum;      //sum用于计算每个tum的和
 	}
+	printf("The result is %d.", sum);
 
-	printf("结果是%d", tum);
 	system("pause");
+	return 0;
 }

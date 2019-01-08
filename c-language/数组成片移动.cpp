@@ -12,18 +12,18 @@ int main()
 	void output(int *);
 	int * swap(int *);
 
-	printf("输入整数的个数n:\n");
+	printf("Please enter the quantity of numbers you want to swap :\n");
 	scanf_s("%d", &n);
 
-	printf("输入后移的位置数m:\n");
+	printf("Please enter the number of position you want to move backforwar :\n");
 	scanf_s("%d", &m);
 
-	printf("输入这些数:\n");
+	printf("Please enter the number:\n");
 	for (i = 0; i < n; i++)
 	{
+		printf("a[%d]=", i);
 		scanf_s("%d", &a[i]);
 	}
-
 
 	output(swap(a));
 
@@ -34,19 +34,19 @@ int main()
 int * swap(int *a)
 {
 	int i;
-	int b[100], c[100],d[100];
+	int b[100], c[100], d[100];     //设置2个临时数组存放数据
 
 	for (i = 0; i < m; i++)
 	{
 		b[i] = *(a + i);
 	}
 
-	for (i = 0; i < n-m; i++)
+	for (i = 0; i < n - m; i++)
 	{
 		c[i] = *(a + i + m);
 	}
 
-	for (i = 0; i < n-m; i++)
+	for (i = 0; i < n - m; i++)
 	{
 		d[i] = c[i];
 	}
@@ -60,7 +60,7 @@ int * swap(int *a)
 void output(int *d)
 {
 	int i;
-	
+
 	for (i = 0; i < n; i++)
 	{
 		printf("%d\t", *(d + i));

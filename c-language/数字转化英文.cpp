@@ -3,31 +3,27 @@
 
 int main()
 {
-	int n,m,i,t;     //n是输入的数，m是n的个位数、十位数....,,  t是计数器，表示n的几位数
-	int temp;
-	int a[100];
+	int num, i, temp, count = 0;
+	int a[10];
 
-	scanf_s("%d", &n);
+	printf("Please enter a number: ");
+	scanf_s("%d", &num);
 
-	for(i=0;n!=0;i++)
-	{	
-		m = n % 10;
-		a[i] = m;       /*取出的m是从个位开始的，需将其顺序颠倒，
-					    故每取出一个数就存放在数组中，后面用for语句倒转顺序*/
-		n /= 10;
-		t = i+1;             
+	for (i = 0; num != 0; i++)         //先取出各个位置上的数
+	{
+		a[i] = num % 10;
+		num /= 10;
+		count++;                        //count记录num是几位数
 	}
-	for (i = 0; i < t/2; i++)      //颠倒数组内数的顺序
+	for (i = 0; i < count / 2; i++)    //上述方法输入数组的数是颠倒的，这个for语句将之倒回
 	{
 		temp = a[i];
-		a[i] = a[t-1-i];
-		a[t-1-i] = temp;
+		a[i] = a[count - 1 - i];
+		a[count - 1 - i] = temp;
 	}
-
-	for (i = 0; i < t; i++)
+	for (i = 0; i < count; i++)
 	{
-		temp = a[i];            //将每个数赋给临时变量temp
-		switch (temp)
+		switch (a[i])
 		{
 		case 0:printf("zero "); break;
 		case 1:printf("one "); break;
@@ -40,7 +36,7 @@ int main()
 		case 8:printf("eight "); break;
 		case 9:printf("nine "); break;
 		}
-	} 
+	}
 
 	system("pause");
 	return 0;

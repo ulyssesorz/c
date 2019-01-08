@@ -2,45 +2,45 @@
 #include<stdlib.h>
 #include<stdlib.h>
 
-int n, m;
-char str[100], str2[100];
-
-char * strcopy(char *str)
-{
-	int t = 0, i;
-	i = m - 1;
-	str = str + i;
-	for (; i < n; i++)
-	{
-		str2[t] = *str;
-		str++;
-		t++;
-	}
-	return str2;
-}
+int begin, end;                            //从begin复制到end
+char str1[100], str2[100];
 
 int main()
 {
 	char *strcopy(char *);
+	int k;
 	char *p;
-	int i;
 
-	printf("请输入n:\n");
-	scanf_s("%d", &n);
+	printf("Please enter the location of begin: ");
+	scanf_s("%d", &begin);
 
-	printf("请输入m:\n");
-	scanf_s("%d", &m);
+	printf("Please enter the location of end: ");
+	scanf_s("%d", &end);
 
-	printf("请输入字符串:\n");
-	scanf_s("%s", str, 100);
+	printf("Please enter string: ");
+	scanf_s("%s", str1, 100);
 
-	p = strcopy(str);
+	p = strcopy(str1);
 
-	for (i = 0; i < n - m + 1; i++)
+	for (k = 0; k < end - begin + 1; k++)
 	{
 		printf("%c", *(p++));
 	}
 
 	system("pause");
 	return 0;
+}
+char *strcopy(char *str1)
+{
+	int i = 0;
+	int j = begin - 1;           //j控制复制的次数
+	str1 = str1 + j;             //把指针移到开始复制的位置
+
+	for (; j < end; j++)
+	{
+		str2[i] = *str1;
+		str1++;
+		i++;
+	}
+	return str2;
 }

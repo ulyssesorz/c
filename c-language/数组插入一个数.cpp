@@ -4,23 +4,23 @@
 int main()
 {
 	int a[6] = { 1,3,5,7,9 };
-	int i, j, num,temp1,temp2;
+	int i, j, num, temp1, temp2;
 
-	printf("请输入要插入的数:\n");
+	printf("Please enter the number you want to insert:\n");
 	scanf_s("%d", &num);
 
-	if (num == a[4])
+	if (num >= a[4])                    //如果num大于所有数，放在末尾即可
 		a[5] = num;
 	else
 	{
 		for (i = 0; i < 5; i++)
 		{
-			if (a[i] > num)
+			if (num <= a[i])
 			{
 				temp1 = a[i];
 				a[i] = num;
 
-				for (j = i + 1; j < 6; j++)
+				for (j = i + 1; j < 6; j++)    //所有数后移，类似冒泡法中的交换
 				{
 					temp2 = a[j];
 					a[j] = temp1;
@@ -28,10 +28,9 @@ int main()
 				}
 				break;
 			}
-
 		}
 	}
-
+	printf("The result is :\n");
 	for (i = 0; i < 6; i++)
 	{
 		printf("%d\t", a[i]);

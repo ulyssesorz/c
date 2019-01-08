@@ -3,47 +3,36 @@
 
 int main()
 {
-	int fun(int, int);
-	int num, i;
-	int a[10];
+	void fun(int, int);
+	int num;
+	int m;
 
-	for (i = 0; i < 10; i++)
-	{
-		printf("请输入a[%d]:", i);
-		scanf_s("%d", &a[i]);
-	}
-	printf("\n\n");
-
-	printf("请输入基数:\n");
+	printf("Please enter one number: ");
 	scanf_s("%d", &num);
-	printf("\n\n");
 
-	printf("这10个数对应的%d进制数分别是:\n",num);
-	for (i = 0; i < 10; i++)
-	{
-		fun(a[i], num);
-		printf("\n");
-	}
+	printf("Please enter the basic number: ");
+	scanf_s("%d", &m);
+
+	fun(num, m);
 
 	system("pause");
+	return 0;
 }
-
-int fun(int a, int b)
+void fun(int a, int b)
 {
-	int k = 1;
+	int c = 1;
 
 	if (a == 0)
-		k = 0;
+		c = 0;                        //c取值无限制
 	else
 	{
-		fun(a / b, b);               //递归，当a=0时跳出，开始逐个打印k
-		k = a % b;
+		fun(a / b, b);
+		c = a % b;
 
-		if (k < 10)
-			printf("%d", k);
+		if (c < 10)
+			printf("%d\n", c);
 		else
-			printf("%c", k + 87);    //把大于9的数转化为字母(a的ASCII码是97，即10+87)
-	}
+			printf("%c\n", c + 87);   //把大于9的数转化为字母(a的ASCII码是97，即10+87)
 
-	return 0;
+	}
 }

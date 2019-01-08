@@ -1,33 +1,37 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 int main()
 {
-	int n,t=0;
+	int num, flag = 0;
 	int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int low = 0;
-	int high = 9;
-	int middle = 0;
-	scanf_s("%d", &n);
+	int low = 0, middle, high = 9;
+
+	printf("Please enter a number:\n");
+	scanf_s("%d", &num);
+
 	while (low <= high)
 	{
 		middle = (low + high) / 2;
-		if (n == a[middle])
+
+		if (num == a[middle])
 		{
-			t = 1; break;
+			flag = 1;                  //flag是标记—判断标志
+			break;
 		}
-
-		else if (n > a[middle])
-			low = middle + 1; 
-
+		else if (num > a[middle])
+			low++;
 		else
-			high = middle - 1; 
+			high--;
 	}
-	if (t == 1)
-		printf("存在，位置是%d\n", middle);
+	if (flag == 1)
+	{
+		printf("The number you are looking for exists.\n");
+		printf("It is the %dth number.\n", middle + 1);
+	}
 	else
-		printf("不存在\n");
-	system("PAUSE");
+		printf("This number doesn't exist.");
+
+	system("pause");
+	return 0;
 }
-
-
-
